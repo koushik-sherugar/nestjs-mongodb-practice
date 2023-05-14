@@ -7,12 +7,12 @@ import { Book, BookSchema } from './schemas/book.schema';
 import { BookService } from './services/book.services';
 
 
-
+const MONGODB_URL = process.env.MONGODB_URL
 @Module({
   imports: [
     // MongooseModule.forRoot('mongodb://localhost:27017',{dbName: 'studentdb'}),
     MongooseModule.forFeature([{name: Book.name, schema: BookSchema}]),
-    MongooseModule.forRoot('mongodb+srv://koushik:koushik700@cluster0.t5hxxit.mongodb.net/?retryWrites=true&w=majority'),
+    MongooseModule.forRoot('MONGODB_URL'),
   // MongooseModule.forFeature([{name:'user', schema:UserSchema}])
   ],
   controllers: [AppController, BookController],
